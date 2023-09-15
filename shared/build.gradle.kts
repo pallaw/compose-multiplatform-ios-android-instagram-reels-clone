@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("org.jetbrains.compose")
+    id("kotlinx-serialization")
 }
 
 kotlin {
@@ -26,6 +27,8 @@ kotlin {
                 implementation(compose.material)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
+
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
             }
         }
         val androidMain by getting {
