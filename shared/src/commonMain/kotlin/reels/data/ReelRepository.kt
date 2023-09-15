@@ -3,9 +3,9 @@ package reelsList.data
 import kotlinx.serialization.json.Json
 import reelsList.data.model.Reel
 
-object ReelRepository {
+class ReelRepository {
 
-    private const val staticReelsData: String = "[\n" +
+    private val staticReelsData: String = "[\n" +
             "  {\n" +
             "    \"description\": \"Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\\n\\nLicensed under the Creative Commons Attribution license\\nhttp://www.bigbuckbunny.org\",\n" +
             "    \"source\": \"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4\",\n" +
