@@ -28,13 +28,12 @@ kotlin {
                 implementation(compose.material)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
-
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+                api(compose.materialIconsExtended)
 
                 api("dev.icerock.moko:mvvm-core:0.16.1")
                 api("dev.icerock.moko:mvvm-compose:0.16.1")
                 implementation("media.kamel:kamel-image:0.7.3")
-                api(compose.materialIconsExtended)
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
             }
         }
         val androidMain by getting {
@@ -42,6 +41,9 @@ kotlin {
                 api("androidx.activity:activity-compose:1.7.2")
                 api("androidx.appcompat:appcompat:1.6.1")
                 api("androidx.core:core-ktx:1.10.1")
+
+                /*This is needed even if no actual API is being used,
+                because kamel uses ktor internally for android implementation.*/
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
             }
         }
