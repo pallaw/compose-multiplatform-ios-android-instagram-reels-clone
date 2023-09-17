@@ -45,6 +45,10 @@ kotlin {
                 /*This is needed even if no actual API is being used,
                 because kamel uses ktor internally for android implementation.*/
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
+
+                //Media3
+                implementation ("androidx.media3:media3-exoplayer:1.0.0-rc01")
+                implementation ("androidx.media3:media3-ui:1.0.0-rc01")
             }
         }
         val iosX64Main by getting

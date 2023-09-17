@@ -17,8 +17,7 @@ fun ReelView(reel: Reel) {
             modifier = Modifier
                 .fillMaxSize()
                 .aspectRatio(9.0f, true),
-            videoUrl =
-            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+            videoUrl = reel.source
         )
 
         ReelFooter(reel)
