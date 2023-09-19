@@ -8,6 +8,7 @@ import kotlinx.cinterop.CValue
 import kotlinx.cinterop.ExperimentalForeignApi
 import platform.AVFoundation.AVPlayer
 import platform.AVFoundation.AVPlayerLayer
+import platform.AVFoundation.muted
 import platform.AVFoundation.play
 import platform.AVKit.AVPlayerViewController
 import platform.CoreGraphics.CGRect
@@ -28,9 +29,15 @@ actual fun VideoPlayer(modifier: Modifier, videoUrl: String) {
     playerLayer.player = player
     // Use a UIKitView to integrate with your existing UIKit views
     UIKitView(
+        interactive = false,
         factory = {
             // Create a UIView to hold the AVPlayerLayer
             val playerContainer = UIView()
+            playerContainer.userInteractionEnabled = false
+            avPlayerViewController.view.userInteractionEnabled = false
+            avPlayerViewController.view.subviews.forEach {
+                (it as UIView).userInteractionEnabled = false
+            }
             playerContainer.addSubview(avPlayerViewController.view)
             // Return the playerContainer as the root UIView
             playerContainer
